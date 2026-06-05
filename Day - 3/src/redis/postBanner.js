@@ -4,6 +4,7 @@ import { BANNER_KEY } from "../config/keyFile.js";
 
 const bannerRouter = express.Router();
 
+// for creating post banner
 bannerRouter.post("/post", async (req, res) => {
     try {
         await redis.set(BANNER_KEY, req.body.message || "Welcome to the our site!")
@@ -19,6 +20,7 @@ bannerRouter.post("/post", async (req, res) => {
     }
 })
 
+// for fetching post banner
 bannerRouter.get("/banner", async (req, res) => {
     try {
         const message = await redis.get(BANNER_KEY);
@@ -35,6 +37,7 @@ bannerRouter.get("/banner", async (req, res) => {
     }
 })
 
+// for deleting post banner
 bannerRouter.delete("/delete", async (req, res) => {
     try {
         await redis.del(BANNER_KEY);
