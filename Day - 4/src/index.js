@@ -125,7 +125,7 @@ app.get("/otp/:phone/ttl", async (req, res) => {
         return res.status(200).json({
             message: "OTP TTL fetched successfully!",
             success: true,
-            ttl: ttl 
+            ttl: ttl
         })
     } catch (error) {
         console.log(error);
